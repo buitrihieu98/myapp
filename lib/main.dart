@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'mytext.dart';
+import 'coursesList.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,34 +29,32 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Sign In'),
+      home: MyHomePage(title: 'Flutter Demo',),
     );
   }
 }
 
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key key, this.title,}) : super(key: key);
   final String title;
+//  final List<String>courses;
+//  = <String>["Khóa học React Native", "Khóa học Flutter", "Khóa học AR"];
+//  @override
+//  _MyHomePageState createState() => _MyHomePageState();
+//}
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+//class _MyHomePageState extends State<MyHomePage> {
+//  int _counter = 0;
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      print('Say yeah');
-    });
-  }
+//  void _incrementCounter() {
+//    setState(() {
+//      _counter++;
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
 //      appBar: AppBar(
 //        title: Text(widget.title),
@@ -66,41 +65,33 @@ class _MyHomePageState extends State<MyHomePage> {
 //        ,
 //      ),
       body: Container(
-
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.jpg"),
             fit: BoxFit.cover,
           ),
         ),
-
         child: Center(
           child:Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              myText(text:"text 1"),
-              Text(
-                'AAAAAAAAAAAA',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
-              ),
-              Text(
-                '$_counter',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
-              ),
               Icon(Icons.lightbulb_outline,
-                  size: 48.0, color: Colors.redAccent),
-              IconButton(icon: Icon(Icons.add),tooltip: "Click me",onPressed:(){print("clicked");},
+                  size: 100.0, color: Colors.redAccent),
+              myText(text:"Courses list"),
+              coursesList(),
+              IconButton(icon: Icon(Icons.add,),tooltip: "Click me",onPressed:(){print("clicked");},
               ),
-              RaisedButton(color:Colors.red,highlightColor: Colors.white,child:myText(text:"click me"),onPressed: () {print('Say yeah') ; },)
+              RaisedButton(color:Colors.red,highlightColor: Colors.white,child:myText(text:"click me"),onPressed: () {print('Say yeah') ; }
+              ),
+
             ],
           ),
         )
 
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        onPressed: (){print("floating action button clicked");},
+        child: Icon(Icons.camera),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
