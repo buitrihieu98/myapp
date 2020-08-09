@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Download.dart';
 
 import 'mytext.dart';
 import 'coursesList.dart';
@@ -71,22 +72,23 @@ class MyHomePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(Icons.lightbulb_outline,
-                  size: 100.0, color: Colors.redAccent),
-              myText(text:"Courses list"),
-              coursesList(),
-              IconButton(icon: Icon(Icons.add,),tooltip: "Click me",onPressed:(){print("clicked");},
-              ),
-              RaisedButton(color:Colors.red,highlightColor: Colors.white,child:myText(text:"click me"),onPressed: () {print('Say yeah') ; }
-              ),
-
-            ],
-          ),
-        )
+            child: download(),
+//        child: Center(
+//          child:Column(
+//            mainAxisAlignment: MainAxisAlignment.center,
+//            children: <Widget>[
+//              Icon(Icons.lightbulb_outline,
+//                  size: 100.0, color: Colors.redAccent),
+//              myText(text:"Courses list"),
+//              coursesList(),
+//              IconButton(icon: Icon(Icons.add,),tooltip: "Click me",onPressed:(){print("clicked");},
+//              ),
+//              RaisedButton(color:Colors.red,highlightColor: Colors.white,child:myText(text:"click me"),onPressed: () {print('Say yeah') ; }
+//              ),
+//
+//            ],
+//          ),
+//        )
 
       ),
       floatingActionButton: FloatingActionButton(
