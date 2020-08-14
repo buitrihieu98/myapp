@@ -19,7 +19,7 @@ class download extends StatelessWidget {
                     size:50,
                 ),
                 myText(text:"Download"),
-                coursesList()
+                category()
               ]
           )
         )
