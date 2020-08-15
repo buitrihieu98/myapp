@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'courseDetail.dart';
 import 'mytext.dart';
 class coursesList extends StatelessWidget{
 
@@ -12,7 +13,12 @@ class coursesList extends StatelessWidget{
         itemBuilder: (context, index) {
           return ListTile(
             focusColor: Colors.lightGreen,
-            onTap: (){print('list item ${index} clicked');},
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>
+                      CourseDetail(list[index])
+                  ));
+            },
             title: myText(text:'${index+1}: ${list[index]}'),
             trailing: Icon(Icons.navigate_next),
           );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/coursesList.dart';
 import 'mytext.dart';
-class download extends StatelessWidget {
+class Download extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
