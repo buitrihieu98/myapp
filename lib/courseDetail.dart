@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'mytext.dart';
-class courseDetail extends StatelessWidget {
+class CourseDetail extends StatelessWidget {
+  final courseTitle;
+  CourseDetail(@required this.courseTitle);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +13,7 @@ class courseDetail extends StatelessWidget {
           ),
         ),
         child: Center(
-          child:myText(text:"Course title"),
+          child:myText(text:courseTitle),
         )
     );
   }

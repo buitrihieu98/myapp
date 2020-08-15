@@ -1,40 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Download.dart';
 
+import 'courseDetail.dart';
 import 'mytext.dart';
 import 'coursesList.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new MaterialApp(
+    home: new MyTab()
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyTab extends StatefulWidget {
   // This widget is the root of your application.
   @override
+  MyTabState createState() => new MyTabState();
+ /* @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo',),
+    );
+  }*/
+}
+
+class MyTabState extends State<MyTab> with SingleTickerProviderStateMixin{
+  TabController controller;
+  @override
+  void initState(){
+    super.initState();
+    controller = new TabController(length: 2, vsync: this);
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+        bottomNavigationBar: Material (
+          child: TabBar(
+            tabs: <Tab> [
+              Tab(icon: Icon(Icons.list)),
+              Tab(icon: Icon(Icons.cloud_download))
+            ],
+            controller: controller,
+          ),
+          color: Colors.blue,
+        ),
+        body: TabBarView(
+          children: <Widget> [
+            MyHomePage(),
+            Download()
+          ],
+          controller: controller,
+        )
     );
   }
 }
-
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title,}) : super(key: key);
@@ -72,6 +95,7 @@ class MyHomePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+<<<<<<< HEAD
             child: download(),
 //        child: Center(
 //          child:Column(
@@ -90,6 +114,25 @@ class MyHomePage extends StatelessWidget {
 //            ],
 //          ),
 //        )
+=======
+           // child: download(),
+      child: Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.lightbulb_outline,
+                size: 100.0, color: Colors.redAccent),
+            myText(text:"Courses list"),
+            coursesList(),
+            IconButton(icon: Icon(Icons.add,),tooltip: "Click me",onPressed:(){print("clicked");},
+            ),
+             /*RaisedButton(color:Colors.red,highlightColor: Colors.white,child:myText(text:"click me"),onPressed: () {print('Say yeah') ; }
+            ),*/
+
+           ],
+        ),
+      )
+>>>>>>> 96252c4107e66534cfbc4f878c737847bf69820a
 
       ),
       floatingActionButton: FloatingActionButton(

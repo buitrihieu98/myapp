@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'dart:convert';
+=======
+import 'courseDetail.dart';
+>>>>>>> 96252c4107e66534cfbc4f878c737847bf69820a
 import 'mytext.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,10 +44,20 @@ class coursesList extends State<category> {
         itemBuilder: (context, index) {
           return ListTile(
             focusColor: Colors.lightGreen,
+<<<<<<< HEAD
             onTap: () {
               print('list item ${index} clicked');
             },
             title: myText(text: '${index + 1}: ${data[index]["name"]}'),
+=======
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>
+                      CourseDetail(list[index])
+                  ));
+            },
+            title: myText(text:'${index+1}: ${list[index]}'),
+>>>>>>> 96252c4107e66534cfbc4f878c737847bf69820a
             trailing: Icon(Icons.navigate_next),
           );
         },
